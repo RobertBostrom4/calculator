@@ -1,1 +1,2 @@
 # calculator
+This project is a web version of a simple calculator that does all of the basic math operations you would typically find on simple calculators. This was created using basic Javascript, HTML, and CSS.
