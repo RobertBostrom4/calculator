@@ -9,3 +9,12 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.container {
+    display: flex;
+    flex-flow: column;
+    height: 960px;
+    width: 960px;
+    border-style: solid;
+    overflow: hidden;
+}
