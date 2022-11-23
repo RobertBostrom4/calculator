@@ -11,5 +11,5 @@ const multiply = (a, b) => {
 }
 
 const divide = (a, b) => {
-    return Math.round(a / b);
+    return parseFloat(a / b);
 }
