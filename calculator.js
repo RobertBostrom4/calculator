@@ -1,17 +1,17 @@
 const add = (a, b) => {
-    return a + b;
+    return parseFloat(a) + parseFloat(b);
 }
 
 const subtract = (a, b) => {
-    return a - b;
+    return parseFloat(a) - parseFloat(b);
 }
 
 const multiply = (a, b) => {
-    return a * b;
+    return parseFloat(a) * parseFloat(b);
 }
 
 const divide = (a, b) => {
-    return parseFloat(a / b);
+    return parseFloat(a) / parseFloat(b);
 }
 
 const operate = (operator, a, b) => {
