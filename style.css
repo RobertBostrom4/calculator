@@ -17,4 +17,16 @@ body {
     width: 960px;
     border-style: solid;
     overflow: hidden;
+    justify-content: space-around;
+    background-color: #383838;
+}
+
+button.operator {
+    background-color: skyblue;
+}
+
+button {
+    background-color: gray;
+    color: white;
+    font-size: 8vh;
 }
