@@ -43,20 +43,18 @@ const buildCalculator = () => {
         row.style.flexFlow = "row-reverse";
         row.style.justifyContent = "space-evenly"; //Or space-around
         row.style.alignItems = "center";
-        row.style.backgroundColor = "black";
-        row.style.borderStyle = "solid";
-        row.style.height = "50px";
+        row.style.height = "100px";
         row.style.overflow = "hidden";
 
         let result = document.createElement("p");
         let calculatorDisplayTotal = document.querySelector(".result");
         result.className = "result";
         result.style.backgroundColor = "lightgreen";
-        result.style.height = "40px";
+        result.style.height = "90%";
         result.style.width = "85%";
         result.textContent = 0;
         result.style.textAlign = "right";
-        result.style.fontSize = "30px";
+        result.style.fontSize = "7vh";
 
         if (i == 0) {
 
@@ -66,8 +64,8 @@ const buildCalculator = () => {
         if (i == 1) {
 
             let button = document.createElement("button");
-            button.style.height = "30px";
-            button.style.width = "50px";
+            button.style.height = "15vh";
+            button.style.width = "8vh";
             button.textContent = "C";
 
             button.addEventListener("click", function () {
@@ -87,13 +85,14 @@ const buildCalculator = () => {
 
             for (j = 0; j < 4; j++) {
                 let button = document.createElement("button");
-                button.style.height = "30px";
-                button.style.width = "50px";
+                button.style.height = "30vh";
+                button.style.width = "8vh";
 
                 // Put Operator symbols on buttons
 
                 if (j == 0) {
 
+                    button.classList.add("operator");
                     switch (i) {
                         case 2:
                             button.textContent = "/";
@@ -126,6 +125,7 @@ const buildCalculator = () => {
                                 break;
                             case 1:
                                 button.textContent = "=";
+                                button.style.backgroundColor = "red";
                                 break;
                         }
 
@@ -169,7 +169,6 @@ const buildCalculator = () => {
 
                                     calculatorDisplayTotal.textContent += button.textContent;
                                 }
-
 
                             } else {
 
