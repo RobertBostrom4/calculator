@@ -85,9 +85,12 @@ const buildCalculator = () => {
 
             for (j = 0; j < 4; j++) {
                 let button = document.createElement("button");
-                button.style.height = "30vh";
+                button.style.height = "9vh";
                 button.style.width = "8vh";
-
+                button.style.display = "flex";
+                button.style.flexDirection = "column";
+                button.style.justifyContent = "center";
+                button.style.alignItems = "center";
                 // Put Operator symbols on buttons
 
                 if (j == 0) {
