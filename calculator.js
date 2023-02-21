@@ -188,13 +188,18 @@ const buildCalculator = () => {
                                 } else {
 
 
-                                    // Keep performing operation if there are already defined inputs
+                                    // Keep performing equals operation if there are already defined inputs
 
-                                    if (firstOperand !== undefined && secondOperand !== undefined && operator !== undefined && button.textContent == "=") {
+                                    if (button.textContent == "=") {
+
+                                        if (firstOperand !== undefined && secondOperand !== undefined && operator !== undefined) {
                                         firstOperand = calculatorDisplayTotal.textContent;
                                     } else {
                                         secondOperand = calculatorDisplayTotal.textContent;
 
+                                        }
+
+                                        calculatorDisplayTotal.textContent = operate(operator, firstOperand, secondOperand);
                                     }
 
 
