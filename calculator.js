@@ -181,20 +181,20 @@ const buildCalculator = () => {
 
 
 
-                                    // Keep performing equals operation if there are already defined inputs
+                                // Keep performing equals operation if there are already defined inputs
 
-                                    if (button.textContent == "=") {
+                                if (button.textContent == "=") {
 
-                                        if (firstOperand !== undefined && secondOperand !== undefined && operator !== undefined) {
+                                    if (firstOperand !== undefined && secondOperand !== undefined && operator !== undefined) {
                                         firstOperand = calculatorDisplayTotal.textContent;
                                     } else {
                                         secondOperand = calculatorDisplayTotal.textContent;
 
-                                        }
-
-                                        calculatorDisplayTotal.textContent = operate(operator, firstOperand, secondOperand);
-                                    equalsPressed = true;
                                     }
+
+                                    calculatorDisplayTotal.textContent = operate(operator, firstOperand, secondOperand);
+                                    equalsPressed = true;
+                                }
 
 
                                 // Store Operator       
@@ -206,11 +206,11 @@ const buildCalculator = () => {
 
                                         firstOperand = calculatorDisplayTotal.textContent;
                                         calculatorDisplayTotal.textContent = 0;
-                                    console.log("first: " + firstOperand);
+                                        console.log("first: " + firstOperand);
 
                                     } else {
                                         secondOperand = calculatorDisplayTotal.textContent;
-                                    console.log("second: " + secondOperand);
+                                        console.log("second: " + secondOperand);
 
                                     }
 
@@ -223,12 +223,12 @@ const buildCalculator = () => {
 
                                         } else {
 
-                                        calculatorDisplayTotal.textContent = operate(operator, firstOperand, secondOperand);
+                                            calculatorDisplayTotal.textContent = operate(operator, firstOperand, secondOperand);
                                             firstOperand = calculatorDisplayTotal.textContent;
 
-                                    }
+                                        }
 
-                                }
+                                    }
 
                                     operator = button.textContent;
                                 }
