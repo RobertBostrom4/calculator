@@ -58,6 +58,7 @@ const buildCalculator = () => {
         result.style.textAlign = "right";
         result.style.fontSize = "7vh";
 
+
         if (i == 0) {
 
             row.appendChild(result);
@@ -75,6 +76,7 @@ const buildCalculator = () => {
                 secondOperand = undefined;
                 operator = undefined;
                 calculatorDisplayTotal.textContent = 0;
+                console.clear();
             });
 
             row.append(button);
@@ -94,9 +96,7 @@ const buildCalculator = () => {
                 button.style.justifyContent = "center";
                 button.style.alignItems = "center";
                 // Put Operator symbols on buttons
-
                 if (j == 0) {
-
                     button.classList.add("operator");
                     switch (i) {
                         case 2:
@@ -151,6 +151,7 @@ const buildCalculator = () => {
 
                     } else {
 
+
                         if (calculatorDisplayTotal.textContent.length < 16) {
 
                             // Behave differently if not an operator
@@ -170,24 +171,14 @@ const buildCalculator = () => {
                                     calculatorDisplayTotal.textContent = button.textContent;
                                     secondOperand = undefined;
                                     operater = undefined;
-                                } else {
+                                }
+                                else {
 
                                     calculatorDisplayTotal.textContent += button.textContent;
                                 }
 
                             } else {
 
-                                // Store first input if firstOperand is already empty
-
-                                if (firstOperand == undefined) {
-
-                                    // Store first input
-                                    firstOperand = calculatorDisplayTotal.textContent;
-
-                                    // Reset display to zero
-                                    calculatorDisplayTotal.textContent = 0;
-
-                                } else {
 
 
                                     // Keep performing equals operation if there are already defined inputs
@@ -202,35 +193,44 @@ const buildCalculator = () => {
                                         }
 
                                         calculatorDisplayTotal.textContent = operate(operator, firstOperand, secondOperand);
+                                    equalsPressed = true;
                                     }
-
-
-                                }
-
-
-                                if (button.textContent !== "=" && Number.isInteger(parseInt(button.textContent)) == false && button.textContent !== "." && firstOperand !== undefined && secondOperand !== undefined) {
-                                    console.log("first: " + firstOperand);
-                                    console.log("second: " + secondOperand);
-
-                                    calculatorDisplayTotal.textContent = operate(button.textContent, firstOperand, secondOperand);
-
-
-                                }
 
 
                                 // Store Operator       
+
                                 if (button.textContent !== "=" && Number.isInteger(parseInt(button.textContent)) == false && button.textContent !== ".") {
-                                    if (firstOperand !== undefined && secondOperand !== undefined && operator !== undefined) {
-                                        calculatorDisplayTotal.textContent = operate(operator, firstOperand, secondOperand);
+
+
+                                    if (firstOperand == undefined) {
+
+                                        firstOperand = calculatorDisplayTotal.textContent;
+                                        calculatorDisplayTotal.textContent = 0;
+                                    console.log("first: " + firstOperand);
+
+                                    } else {
+                                        secondOperand = calculatorDisplayTotal.textContent;
+                                    console.log("second: " + secondOperand);
+
                                     }
-                                    operator = button.textContent;
-                                    console.log("operator: " + operator);
+
+                                    if (firstOperand !== undefined && secondOperand !== undefined) {
+
+                                        if (equalsPressed == true) {
+
+                                            firstOperand = calculatorDisplayTotal.textContent;
+                                            equalsPressed = false;
+
+                                        } else {
+
+                                        calculatorDisplayTotal.textContent = operate(operator, firstOperand, secondOperand);
+                                            firstOperand = calculatorDisplayTotal.textContent;
+
+                                    }
 
                                 }
 
-                                // Perform initial operation
-                                if (button.textContent == "=") {
-                                    calculatorDisplayTotal.textContent = operate(operator, firstOperand, secondOperand);
+                                    operator = button.textContent;
                                 }
 
 
@@ -257,3 +257,5 @@ const buildCalculator = () => {
 
 
 }
+
+buildCalculator();
