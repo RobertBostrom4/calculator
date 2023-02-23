@@ -35,6 +35,8 @@ const buildCalculator = () => {
     let firstOperand;
     let secondOperand;
     let operator;
+    let equalsPressed;
+    equalsPressed = false;
 
     for (i = 0; i < 6; i++) {
         let row = document.createElement("div");
