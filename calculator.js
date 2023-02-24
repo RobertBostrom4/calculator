@@ -56,7 +56,10 @@ const buildCalculator = () => {
         result.style.width = "85%";
         result.textContent = 0;
         result.style.textAlign = "right";
-        result.style.fontSize = "7vh";
+        result.style.fontSize = "5.5vh";
+        result.style.borderRadius = "2%"
+        result.style.display = "flex-reverse";
+        result.style.alignItems = "end";
 
 
         if (i == 0) {
