@@ -188,6 +188,9 @@ const buildCalculator = () => {
 
                                 if (button.textContent == "=") {
 
+                                    if (firstOperand == undefined && secondOperand == undefined && operator == undefined) {
+                                        return;
+                                    }
                                     if (firstOperand !== undefined && secondOperand !== undefined && operator !== undefined) {
                                         firstOperand = calculatorDisplayTotal.textContent;
                                     } else {
