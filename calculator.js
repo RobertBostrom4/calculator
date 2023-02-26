@@ -54,7 +54,7 @@ const buildCalculator = () => {
         result.style.backgroundColor = "lightgreen";
         result.style.height = "90%";
         result.style.width = "85%";
-        result.textContent = 0;
+        result.textContent = "0";
         result.style.textAlign = "right";
         result.style.fontSize = "5.5vh";
         result.style.borderRadius = "2%"
@@ -70,20 +70,35 @@ const buildCalculator = () => {
         if (i == 1) {
 
             let button = document.createElement("button");
-            button.style.height = "15vh";
-            button.style.width = "8vh";
             button.textContent = "C";
 
             button.addEventListener("click", function () {
                 firstOperand = undefined;
                 secondOperand = undefined;
                 operator = undefined;
-                calculatorDisplayTotal.textContent = 0;
+                calculatorDisplayTotal.textContent = "0";
                 console.clear();
             });
 
-            row.append(button);
+            let backSpaceButton = document.createElement("button");
+            backSpaceButton.textContent = "<";
 
+            backSpaceButton.addEventListener("click", function () {
+
+                if (calculatorDisplayTotal.textContent.length > 1) {
+
+                    let calculatorDisplayTotalArray = calculatorDisplayTotal.textContent.split('');
+                    calculatorDisplayTotalArray.pop();
+                    let modifiedArray = calculatorDisplayTotalArray.toString().replaceAll(',', "");
+                    calculatorDisplayTotal.textContent = modifiedArray;
+
+                } else {
+                    calculatorDisplayTotal.textContent = "0";
+                }
+            });
+
+            row.append(backSpaceButton);
+            row.append(button);
 
 
         }
@@ -92,8 +107,7 @@ const buildCalculator = () => {
 
             for (j = 0; j < 4; j++) {
                 let button = document.createElement("button");
-                button.style.height = "9vh";
-                button.style.width = "8vh";
+
                 button.style.display = "flex";
                 button.style.flexDirection = "column";
                 button.style.justifyContent = "center";
@@ -191,6 +205,7 @@ const buildCalculator = () => {
                                     if (firstOperand == undefined && secondOperand == undefined && operator == undefined) {
                                         return;
                                     }
+
                                     if (firstOperand !== undefined && secondOperand !== undefined && operator !== undefined) {
                                         firstOperand = calculatorDisplayTotal.textContent;
                                     } else {
