@@ -100,6 +100,16 @@ const buildCalculator = () => {
             row.append(backSpaceButton);
             row.append(button);
 
+            window.addEventListener("keydown", (event) => {
+
+                if (event.key == "Backspace") {
+                    backSpaceButton.click();
+                }
+
+                if (event.key == button.textContent.toLowerCase()) {
+                    button.click();
+                }
+            });
 
         }
 
@@ -107,6 +117,12 @@ const buildCalculator = () => {
 
             for (j = 0; j < 4; j++) {
                 let button = document.createElement("button");
+
+                window.addEventListener("keydown", (event) => {
+                    if (event.key == button.textContent) {
+                        button.click();
+                    }
+                });
 
                 button.style.display = "flex";
                 button.style.flexDirection = "column";
